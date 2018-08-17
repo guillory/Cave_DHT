@@ -1,7 +1,7 @@
 
 require("settings")
 gpio.mode(PIN_RELAI,gpio.OUTPUT);  gpio.write(PIN_RELAI,gpio.HIGH);
-nbtry=0;
+nbtrypost=0;
 dofile("wifi.lua")
 dofile('postDomoticz.lua')
 dofile('sensor.lua')

@@ -11,10 +11,11 @@ function postDomoticz_all(callback)
 		http.get(serveur..url, nil, function(code, data)
 		    if (code < 0) then
 		      logfile("HTTP request failed");
-		      nbtry=nbtry+1;
-		      logfile ("nbtry : "..nbtry);
-		      if (nbtry<10) then postDomoticz_all(callback) else node.restart() end
+		      nbtrypost=nbtrypost+1;
+		      logfile ("nbtrypost : "..nbtrypost);
 		      ERROR=1;
+		      if (nbtrypost<5) then postDomoticz_all(callback) else node.restart() end
+		      
 		    else
 		      ERROR=0;
 		      logfile('HTTP OK');

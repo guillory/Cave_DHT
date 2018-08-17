@@ -95,7 +95,7 @@ function Sensor()
 end
 function refroidir()
 	nbcycle=nbcycle+1;
-	if nbcycle > 4 then NodeSleep(); end -- securite
+	if nbcycle > 4 then gpio.write(PIN_RELAI,gpio.HIGH); logfile('4 sequences');  NodeSleep();  end -- securite
 	gpio.write(PIN_RELAI,gpio.LOW);
 	nb=NBMNCOOL; logfile("10 mn") ;
 	tmr.alarm(0, 60*1000, 1, function()		
